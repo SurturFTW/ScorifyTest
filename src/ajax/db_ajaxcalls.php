@@ -40,7 +40,7 @@ if(isset($_POST['flag'])){
     }
 
     // Get matchId from game table
-    $getMatchId = "SELECT * FROM `game` WHERE `userid` = '" . $userId . " AND `title`='" . $title . " AND `venue` = '" . $venue . " AND `tossWon` ='" . $tossWon . " AND `tossResult` ='" . $tossResult . " ;";
+    $getMatchId = "SELECT * FROM `game` WHERE `userid` = '" . $userId . " AND `title`='" . $title . " AND `venue` = '" . $venue . " AND `tossWon` ='" . $tossWon . " AND `tossResult` ='" . $tossResult . " AND `maxOvers` ='" . $maxOvers . " AND `result` ='" . $result . ";";
     $result1 = $con->query($getMatchId);
     $row1 = $result1->fetch_assoc();
     $matchId = $row1['matchId'];
