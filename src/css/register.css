@@ -1,0 +1,163 @@
+/* own scripts */
+/* sign up */
+/* contains all user syling */
+/* hover underline */
+
+.on-hover {
+    transition: 0.3s;
+}
+
+.on-hover:hover {
+    background-color: var(--dl-color-gray-);
+    transition: 0.3s;
+}
+
+.myFont {
+    font-family: dot !important;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 20rem;
+    align-content: center;
+}
+
+/* login contet */
+.height-set {
+    height: 60vh !important;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#pass-msg,
+#username-msg,
+#email-msg {
+    width: 96%;
+    display: none;
+    position: relative;
+    color: red;
+    font-family: 'Fira Mono';
+    font-size: 1rem;
+}
+
+.input-contain {
+    position: relative;
+}
+
+input {
+    height: 2.7rem;
+    width: 20rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+
+.placeholder-text {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 3px solid transparent;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.placeholder-text {
+    pointer-events: none;
+}
+
+.text {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+    background-color: transparent;
+    color: black;
+}
+
+input,
+.placeholder-text {
+    padding: 0 1.2rem;
+}
+
+.placeholder-text .text {
+    transition: 0.2s;
+}
+
+input:focus+.placeholder-text .text {
+    outline: none;
+    border-color: rgb(26, 135, 179);
+    color: rgb(137, 137, 137);
+    font-size: 0.85rem;
+    transform: translate(0, -150%);
+}
+
+.placeholder-text .text {
+    background-color: white;
+    font-size: 0.9rem;
+    color: black;
+    transform: translate(0, -140%);
+    border-color: rgb(26, 135, 179);
+    color: rgb(0, 0, 0);
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 96%;
+    align-items: center;
+}
+
+.head p {
+    color: red;
+}
+
+.sub {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 96%;
+}
+
+.first_fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2rem;
+    width: auto;
+    flex-wrap: wrap;
+}
+
+#login,
+#signup,
+#reset{
+    transition: 0.3s ease-in-out;
+}
+
+#signup:hover {
+    background-color: black; 
+    color: white;
+}
+
+#login:hover,
+#reset:hover {
+    background-color: aqua;
+}
+
+.sub a:hover {
+    color: aqua !important;
+}
+
+@media screen and (max-width: 400px) {
+    input {
+        width: 17rem;
+    }
+}
+
