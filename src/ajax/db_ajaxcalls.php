@@ -33,14 +33,14 @@ if(isset($_POST['flag'])){
     $match = "INSERT INTO `game` (`userid`, `title`, `venue`, `tossWon`, `tossResult`, `maxOvers`, `result`) VALUES ('$userId', '$title', '$venue', '$tossWon', '$tossResult', '$maxOvers', '$result');"; 
     // $con->query($match);
     if ($con->query($match) === TRUE) {
-        echo "Match Inserted";
+        echo "\nMatch Inserted";
     } 
     else {
         echo "Error 500";
     }
 
     // Get matchId from game table
-    $getMatchId = "SELECT * FROM `game` WHERE `userid` = '" . $userId . " AND `title`='" . $title . " AND `venue` = '" . $venue . " AND `tossWon` ='" . $tossWon . " AND `tossResult` ='" . $tossResult . " AND `maxOvers` ='" . $maxOvers . " AND `result` ='" . $result . ";";
+    $getMatchId = "SELECT * FROM `game` WHERE `userid` = '$userId' AND `title` = '$title' AND `venue` = '$venue' AND `tossWon` = '$tossWon' AND `tossResult` = '$tossResult' AND `maxOvers` = '$maxOvers' AND `result` = '$result'";
     $result1 = $con->query($getMatchId);
     $row1 = $result1->fetch_assoc();
     $matchId = $row1['matchId'];
@@ -48,7 +48,7 @@ if(isset($_POST['flag'])){
     $team = "INSERT INTO `team` (`matchId`, `teamOneName`, `teamTwoName`, `teamOneRuns`, `teamTwoRuns`, `teamOneBalls`, `teamTwoBalls`, `teamOneWickets`, `teamTwoWickets`) VALUES ('$matchId', '$teamOneName', '$teamTwoName', '$teamOneRuns', '$teamTwoRuns' , '$teamOneBalls', '$teamTwoBalls', '$teamOneWickets', '$teamTwoWickets');";
 
     if ($con->query($team) === TRUE) {
-        echo "Team Inserted";
+        echo "\nTeam Inserted";
     } 
     else {
         echo "Error 500";

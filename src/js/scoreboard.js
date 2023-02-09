@@ -432,30 +432,30 @@ let loadFullScorecard = (track) => {
 
 	//Hidden Fields Data Bridge
 	$("#savedata").click(() => {
-	let match = JSON.parse(localStorage.getItem("match"));
-		$.ajax({
-			url : "../ajax/db_ajaxcalls.php",
-			type : "POST",
-			data : {
-				flag : "YES",
-				//Match Table
-				title : match.title,
-				venue : match.venue,
-				result : match.verdict,
-				tossWon : match.tossWonBy,
-				tossResult : match.tossDecision,
-				maxOvers : match.noOfOvers, 
-				//Team Table
-				teamOneName : match.teams[0],
-				teamTwoName : match.teams[1],
-				teamOneRuns : match.teamScoreboard[0].totalRunScored,
-				teamTwoRuns : match.teamScoreboard[1].totalRunScored,
-				teamOneBalls : match.teamScoreboard[0].ballsPlayed,
-				teamTwoBalls : match.teamScoreboard[1].ballsPlayed,
-				teamOneWickets : match.teamScoreboard[0].wicketFall,
-				teamTwoWickets : match.teamScoreboard[1].wicketFall
+		let match = JSON.parse(localStorage.getItem("match"));
+			$.ajax({
+				url : "../ajax/db_ajaxcalls.php",
+				type : "POST",
+				data : {
+					flag : "YES",
+					//Match Table
+					title : match.title,
+					venue : match.venue,
+					result : match.verdict,
+					tossWon : match.tossWonBy,
+					tossResult : match.tossDecision,
+					maxOvers : match.noOfOvers, 
+					//Team Table
+					teamOneName : match.teams[0],
+					teamTwoName : match.teams[1],
+					teamOneRuns : match.teamScoreboard[0].totalRunScored,
+					teamTwoRuns : match.teamScoreboard[1].totalRunScored,
+					teamOneBalls : match.teamScoreboard[0].ballsPlayed,
+					teamTwoBalls : match.teamScoreboard[1].ballsPlayed,
+					teamOneWickets : match.teamScoreboard[0].wicketFall,
+					teamTwoWickets : match.teamScoreboard[1].wicketFall
 
-			},
+				},
 			success: function (res) {
 				console.log(res);
 			},
