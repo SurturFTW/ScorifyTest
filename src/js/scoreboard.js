@@ -544,8 +544,6 @@ let loadFullScorecard = (track) => {
 };
 
 
-
-
 let newBatsman = () => {
 	let match = JSON.parse(localStorage.getItem("match"));
 	let track = match.batting == match.teams[0] ? 0 : 1;
