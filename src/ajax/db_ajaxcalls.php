@@ -54,6 +54,9 @@ if(isset($_POST['flag'])){
         echo "Error 500";
     }
     $con->close();
+
+    
+    
 }
 
 ob_end_flush();
