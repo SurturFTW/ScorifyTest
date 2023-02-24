@@ -429,6 +429,7 @@ let loadFullScorecard = (track) => {
 
 
 	var player1_names = [];
+	var player1_role = [];
 	var player1_status = [];
 	var player1_runsScored = [];
 	var player1_ballfaced = [];
@@ -446,6 +447,7 @@ let loadFullScorecard = (track) => {
 	var player1_wicketTaken = [];
 
 	var player2_names = [];
+	var player2_role = [];
 	var player2_status = [];
 	var player2_runsScored = [];
 	var player2_ballfaced = [];
@@ -469,11 +471,12 @@ let loadFullScorecard = (track) => {
 		let realmatch = match;
 		console.log(realmatch);
 
-		var team1_arr = match.teamLineUp[0];
-		var team2_arr = match.teamLineUp[1];
+		var team1_arr = realmatch.teamLineUp[0];
+		var team2_arr = realmatch.teamLineUp[1];
 		
 		for(let i = 0; i < Number(match.noOfPlayers); i++){
 			player1_names.push((team1_arr[i].name));
+			player1_role.push((team1_arr[i].role));
 			player1_status.push((team1_arr[i].status));
 			player1_runsScored.push((team1_arr[i].runScored));
 			player1_ballfaced.push((team1_arr[i].ballFaced));
@@ -490,9 +493,12 @@ let loadFullScorecard = (track) => {
 			player1_noBallGiven.push((team1_arr[i].noBallGiven));
 			player1_wicketTaken.push((team1_arr[i].wicketTaken));
 		}
+		tempteam1 = [player1_names, player1_role, player1_status, player1_runsScored, player1_ballfaced, player1_ballDotted, player1_fourHitted, player1_sixHitted, player1_ballsBowled, player1_runsGiven, player1_dotGiven, player1_maidenGiven, player1_fourConsidered, player1_sixConsidered, player1_wideGiven, player1_noBallGiven, player1_wicketTaken];
+		console.log(tempteam1);
 
 		for(let i = 0; i < Number(match.noOfPlayers); i++){
 			player2_names.push((team2_arr[i].name));
+			player2_role.push((team2_arr[i].role));
 			player2_status.push((team2_arr[i].status));
 			player2_runsScored.push((team2_arr[i].runScored));
 			player2_ballfaced.push((team2_arr[i].ballFaced));
@@ -516,6 +522,7 @@ let loadFullScorecard = (track) => {
 			data : {
 				flag : "YES",
 				//Match Table
+				noOfPlayers : match.noOfPlayers,
 				title : match.title,
 				venue : match.venue,
 				result : match.verdict,
@@ -532,7 +539,12 @@ let loadFullScorecard = (track) => {
 				teamTwoBalls : match.teamScoreboard[1].ballsPlayed,
 				teamOneWickets : match.teamScoreboard[0].wicketFall,
 				teamTwoWickets : match.teamScoreboard[1].wicketFall,
+
+				//Score Table
+				team1 : [player1_names, player1_role, player1_status, player1_runsScored, player1_ballfaced, player1_ballDotted, player1_fourHitted, player1_sixHitted, player1_ballsBowled, player1_runsGiven, player1_dotGiven, player1_maidenGiven, player1_fourConsidered, player1_sixConsidered, player1_wideGiven, player1_noBallGiven, player1_wicketTaken],
+				team2 : [player2_names, player2_role, player2_status, player2_runsScored, player2_ballfaced, player2_ballDotted, player2_fourHitted, player2_sixHitted, player2_ballsBowled, player2_runsGiven, player2_dotGiven, player2_maidenGiven, player2_fourConsidered, player2_sixConsidered, player2_wideGiven, player2_noBallGiven, player2_wicketTaken]
 			},
+
 			success: function (res) {
 				console.log(res);
 			},
