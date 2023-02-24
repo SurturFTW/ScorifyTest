@@ -103,6 +103,9 @@
 		<button type="button" class="btn rounded-pill btn-secondary m-2" onclick="undoState()"><i
 				class="fas fa-undo-alt"></i> Undo</button>
 	</div> -->
+	<div class="next">
+		<input type="button" class="mt-3 mx-1 btn btn-lg btn-primary rounded-pill" value="Scorecard" id="scorecard" onclick="teamFullCard(0)">
+	</div> <br>
 </div>
 
 <div class="modal fade" tabindex="-1" id="no-ball">
@@ -434,3 +437,4 @@
 		</div>
 	</div>
 </div>
+

@@ -59,10 +59,8 @@ session_start();
 	</table>
 
 	<div class="bridge">
-		<input type="button" value="Save" id="savedata">
-		<!-- <input type="text" value="<?php echo $_SESSION['id']; ?>" id="userName"> -->
+		<input type="button" class="mt-3 mx-1 btn btn-lg btn-primary rounded-pill" value="Save" id="savedata">
 	</div>
-
 </div>
 
 
