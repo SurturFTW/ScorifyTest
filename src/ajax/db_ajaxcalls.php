@@ -35,8 +35,6 @@ if(isset($_POST['flag'])){
     $team1Players = $_POST["team1"];
     $team2Players = $_POST["team2"];
 
-
-    
     $con = get_con();
     
     // Insert into game table
@@ -53,6 +51,7 @@ if(isset($_POST['flag'])){
     $result1 = $con->query($getMatchId);
     $row1 = $result1->fetch_assoc();
     $matchId = $row1['matchId'];
+    
     // Insert into team table
     $team = "INSERT INTO `team` (`matchId`, `teamName`, `teamRuns`, `teamBalls`, `teamWickets`) VALUES ('$matchId', '$teamOneName', '$teamOneRuns', '$teamOneBalls', '$teamOneWickets');";
     $team2 = "INSERT INTO `team` (`matchId`, `teamName`, `teamRuns`, `teamBalls`, `teamWickets`) VALUES ('$matchId', '$teamTwoName', '$teamTwoRuns', '$teamTwoBalls', '$teamTwoWickets');";
@@ -77,12 +76,43 @@ if(isset($_POST['flag'])){
     $teamId = $row2['teamId'];
     
     // Insert into score table of Team-1
-    $playerNames1 = $team1Players[0];
-    $playerRole1 = $team1Players[1];
+    $player1Name = $team1Players[0];
+    $player1Role = $team1Players[1];
+    $player1Status = $team1Players[2];
+    $player1RunsScored = $team1Players[3];
+    $player1Ballfaced = $team1Players[4];
+    $player1BallDotted = $team1Players[5];
+    $player1FourHitted = $team1Players[6];
+    $player1SixHitted = $team1Players[7];
+    $player1BallsBowled = $team1Players[8];
+    $player1RunsGiven = $team1Players[9];
+    $player1DotGiven = $team1Players[10];
+    $player1MaidenGiven = $team1Players[11];
+    $player1FourConsidered = $team1Players[12];
+    $player1SixConsidered = $team1Players[13];
+    $player1WideGiven = $team1Players[14];
+    $player1NoBallGiven = $team1Players[15];
+    $player1WicketTaken = $team1Players[16];
 
     for($i = 0; $i < $noOfPlayers; $i++){
-        $score1 = "INSERT INTO `player` (`teamId`, `matchId`, `playerName`, `playerRole`) VALUES ('$teamId', '$matchId', '$playerNames1[$i]', '$playerRole1[$i]');";
+        $player1 = "INSERT INTO `player` (`teamId`, `matchId`, `playerName`, `playerRole`) VALUES ('$teamId', '$matchId', '$player1Name[$i]', '$player1Role[$i]');";
 
+        if ($con->query($player1) === TRUE) {
+            echo "\nPlayer1 Inserted";
+        } 
+        else {
+            echo "Error 500";
+        }
+    }
+
+    //Get Player Id from Player Table
+    $getplayerId = "SELECT * FROM `player` WHERE `matchId` = '$matchId' AND `playerName` = '$playerName' AND `playerRole` = '$playerRole'";
+        $result3 = $con->query($getplayerId);
+        $row3 = $result3->fetch_assoc();
+        $playerId = $row3['playerId'];
+
+    for($i = 0; $i < $noOfPlayers; $i++){
+        $score1 = "INSERT INTO `score` (`matchId`, `teamId`, `playerId`, `runScored`, `ballFaced`) VALUES ('$matchId', '$teamId', '$player1Id', '$player1RunsScored[$i]', '$player1Ballfaced[$i]');";
         if ($con->query($score1) === TRUE) {
             echo "\nScore Inserted";
         } 
@@ -90,7 +120,6 @@ if(isset($_POST['flag'])){
             echo "Error 500";
         }
     }
-
 
     // Get teamID for Team-2 from team table
     $getTeamId = "SELECT * FROM `team` WHERE `teamName` = '$teamTwoName' AND `teamRuns` = '$teamTwoRuns' AND `teamBalls` = '$teamTwoBalls' AND `teamWickets` = '$teamTwoWickets'";
@@ -99,20 +128,35 @@ if(isset($_POST['flag'])){
     $teamId = $row2['teamId'];
 
     // Insert into score table of Team-2
-    $playerNames2 = $team2Players[0];
-    $playerRole2 = $team2Players[1];
+    $player2Name = $team2Players[0];
+    $player2Role = $team2Players[1];
+    $player2Status = $team2Players[2];
+    $player2RunsScored = $team2Players[3];
+    $player2Ballfaced = $team2Players[4];
+    $player2BallDotted = $team2Players[5];
+    $player2FourHitted = $team2Players[6];
+    $player2SixHitted = $team2Players[7];
+    $player2BallsBowled = $team2Players[8];
+    $player2RunsGiven = $team2Players[9];
+    $player2DotGiven = $team2Players[10];
+    $player2MaidenGiven = $team2Players[11];
+    $player2FourConsidered = $team2Players[12];
+    $player2SixConsidered = $team2Players[13];
+    $player2WideGiven = $team2Players[14];
+    $player2NoBallGiven = $team2Players[15];
+    $player2WicketTaken = $team2Players[16];
 
     for($i = 0; $i < $noOfPlayers; $i++){
-        $score1 = "INSERT INTO `player` (`teamId`, `matchId`, `playerName`, `playerRole`) VALUES ('$teamId', '$matchId', '$playerNames2[$i]', '$playerRole2[$i]');";
+        $score2 = "INSERT INTO `player` (`teamId`, `matchId`, `playerName`, `playerRole`) VALUES ('$teamId', '$matchId', '$player2Name[$i]', '$player2Role[$i]');";
 
-        if ($con->query($score1) === TRUE) {
-            echo "\nScore Inserted";
+        if ($con->query($score2) === TRUE) {
+            echo "\nPlayer Inserted";
         } 
         else {
             echo "Error 500";
         }
+        
     }
-
 
     $con->close();
 }
