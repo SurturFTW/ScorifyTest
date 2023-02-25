@@ -1,3 +1,6 @@
+<?php 
+
+?>
 <div class="text-center my-3">
   <span class="h1">
     <img src="assets/images/details.png" width="40" height="40">
