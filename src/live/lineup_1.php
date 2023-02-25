@@ -1,3 +1,7 @@
+<?php 
+
+?>
+
 <div class="text-center my-3">
   <span class="h1">
     <img src="assets/images/player-list.png" width="45" height="45">

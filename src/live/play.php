@@ -1,3 +1,7 @@
+<?php 
+
+?>
+
 <div id="match-heading" class="mt-4 text-primary h5 mx-0 mx-lg-5 px-2"></div>
 <div class="mx-lg-5 px-2 mb-3">
 	<span>
