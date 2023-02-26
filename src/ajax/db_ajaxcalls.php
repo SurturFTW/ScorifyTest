@@ -79,19 +79,6 @@ if(isset($_POST['flag'])){
     $playerRole1 = $team1Players[1];
     $playerStatus1 = $team1Players[2];
 
-    for($i = 0; $i < $noOfPlayers; $i++){
-        $player1 = "INSERT INTO `player` (`teamId`, `matchId`, `playerName`, `playerRole`, `playerStatus`) VALUES ('$teamId', '$matchId', '$playerNames1[$i]', '$playerRole1[$i]', '$playerStatus1[$i]');";
-
-        if ($con->query($player1) === TRUE) {
-            echo "\nPlayer Inserted";
-        } 
-        else {
-            echo "Error 500";
-        }
-    }
-
-
-    //Declaration for Player-1
     $playerRunScored1 = $team1Players[3];
     $playerBallFaced1 = $team1Players[4];
     $playerBallDotted1 = $team1Players[5];
@@ -107,6 +94,17 @@ if(isset($_POST['flag'])){
     $playerNoBallGiven1 = $team1Players[15];
     $playerWicketTaken1 = $team1Players[16];
 
+    for($i = 0; $i < $noOfPlayers; $i++){
+        $player1 = "INSERT INTO `player` (`teamId`, `matchId`, `playerName`, `playerRole`, `playerStatus`) VALUES ('$teamId', '$matchId', '$playerNames1[$i]', '$playerRole1[$i]', '$playerStatus1[$i]');";
+
+        if ($con->query($player1) === TRUE) {
+            echo "\nPlayer Inserted";
+        } 
+        else {
+            echo "Error 500";
+        }
+    }
+    
 
     // Get playerId for Team-1 from player table
     $getPlayerId1 = "SELECT * FROM `player` WHERE `teamId` = '$teamId'";
