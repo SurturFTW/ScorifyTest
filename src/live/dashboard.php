@@ -64,6 +64,7 @@ ob_end_flush();
 						<span> Running match</span>
 					</a>
 				</li>
+
 				<li id="score-nav"
 					class="d-none nav-item mx-auto mx-lg-1 my-1 my-lg-0 shadow shadow-lg px-3 pt-lg-1 rounded-pill">
 					<a class="nav-link active rounded-pill text-success" aria-current="page" href="javascript:void(0)" onclick="teamFullCard(0)">
@@ -73,6 +74,7 @@ ob_end_flush();
 						<span> &nbspFull scorecard</span>
 					</a>
 				</li>
+
 			</ul>
 			<ul class="navbar-nav ms-auto">
 				<li class="nav-item mx-1">

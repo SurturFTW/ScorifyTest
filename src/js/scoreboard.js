@@ -552,7 +552,8 @@ let loadFullScorecard = (track) => {
 				console.log(err);
 			}
 		});
-	})
+	});
+
 };
 
 

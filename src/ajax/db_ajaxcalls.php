@@ -196,5 +196,97 @@ if(isset($_POST['flag'])){
 }
 
 
+//Display Team-1 Name
+if(isset($_POST['team1Name'])){
+
+    $matchId = $_POST['matchId'];
+    $teams = array();
+
+    $query = "SELECT * FROM `team` WHERE `matchId` = '$matchId'";
+
+    $result = mysqli_query($status, $query);
+		while ($row3 = $result -> fetch_assoc()) { 
+			array_push($teams, $row3['teamName']);
+		}
+
+        $team = "SELECT * FROM `team` WHERE `teamName` = '$teams[0]'";
+        $result2 = mysqli_query($status, $team);
+        
+		if ($row5 = $result2 -> fetch_assoc()) { 
+			echo "<span>" . "<div id=\"T\"><p>" . $row5["teamName"] . "</p></div>" . "</span>";
+		}
+}
+
+//Display Team-2 Name
+if(isset($_POST['team2Name'])){
+
+    $matchId = $_POST['matchId'];
+    $teams = array();
+
+    $query = "SELECT * FROM `team` WHERE `matchId` = '$matchId'";
+
+    $result = mysqli_query($status, $query);
+		while ($row3 = $result -> fetch_assoc()) { 
+			array_push($teams, $row3['teamName']);
+		}
+
+        $team = "SELECT * FROM `team` WHERE `teamName` = '$teams[1]'";
+        $result2 = mysqli_query($status, $team);
+        
+		if ($row5 = $result2 -> fetch_assoc()) { 
+			echo "<span>" . "<div id=\"T\"><p>" . $row5["teamName"] . "</p></div>" . "</span>";
+		}
+}
+
+//Display Team-1 Player Names
+if(isset($_POST['team1PlayerNames'])){
+
+    $matchId = $_POST['matchId'];
+    $teams = array();
+
+    $query = "SELECT * FROM `team` WHERE `matchId` = '$matchId'";
+
+    $result = mysqli_query($status, $query);
+		while ($row3 = $result -> fetch_assoc()) { 
+			array_push($teams, $row3['teamId']);
+		}
+    
+        $player = "SELECT * FROM `player` WHERE `teamId` = '$teams[0]'";
+        $result2 = mysqli_query($status, $player);
+        
+		while ($row4 = $result2 -> fetch_assoc()) { 
+            echo '<tr>';
+			echo "<td>" . "<div id=\"T\"><p>" . $row4["playerName"] . "</p></div>" . "</td>";
+		}
+        echo '</tr>';
+
+
+}
+
+//Display Team-2 Player Names
+if(isset($_POST['team2PlayerNames'])){
+
+    $matchId = $_POST['matchId'];
+    $teams = array();
+
+    $query = "SELECT * FROM `team` WHERE `matchId` = '$matchId'";
+
+    $result3 = mysqli_query($status, $query);
+		while ($row3 = $result3 -> fetch_assoc()) { 
+			array_push($teams, $row3['teamId']);
+		}
+    
+        $player2 = "SELECT * FROM `player` WHERE `teamId` = '$teams[1]'";
+        $result2 = mysqli_query($status, $player2);
+        
+		while ($row5 = $result2 -> fetch_assoc()) { 
+            echo '<tr>';
+			echo "<td>" . "<div id=\"T\"><p>" . $row5["playerName"] . "</p></div>" . "</td>";
+		}
+        echo '</tr>';
+
+
+}
+
 ob_end_flush();
 ?>
