@@ -24,6 +24,117 @@ let loadHome = () => {
 	});
 };
 
+let loadScoreCard = () => {
+	view("viewcard.php", () => {
+		$("#match").on('change', (e) => {
+			console.log(e);
+			
+			let match = $("#match").val();
+			console.log(match);
+
+			//Team-1 Name
+			$.ajax({
+				url : "../ajax/db_ajaxcalls.php",
+				type : "POST",
+				data : {
+					team1Name : "YES",
+					matchId : match,
+				},
+				success: function (res) {
+					$("#teamOneName").html(res);
+				},
+				error : function (err) {
+					console.log(err);
+				}	
+			})
+
+			//Team-2 Name
+			$.ajax({
+				url : "../ajax/db_ajaxcalls.php",
+				type : "POST",
+				data : {
+					team2Name : "YES",
+					matchId : match,
+				},
+				success: function (res) {
+					$("#teamTwoName").html(res);
+				},
+				error : function (err) {
+					console.log(err);
+				}	
+			})
+
+			//Team-1 Batting
+			$.ajax({
+				url : "../ajax/db_ajaxcalls.php",
+				type : "POST",
+				data : {
+					team1PlayerNames : "YES",
+					matchId : match,
+				},
+				success: function (res) {
+					$("#battingCard1").html(res);
+				},
+				error : function (err) {
+					console.log(err);
+				}	
+			})
+
+			//Team-2 Batting
+			$.ajax({
+				url : "../ajax/db_ajaxcalls.php",
+				type : "POST",
+				data : {
+					team2PlayerNames : "YES",
+					matchId : match,
+				},
+				success: function (res) {
+					//console.log(res);
+					$("#battingCard2").html(res);
+				},
+				error : function (err) {
+					console.log(err);
+				}	
+			})
+
+			//Team-1 Bowling
+			$.ajax({
+				url : "../ajax/db_ajaxcalls.php",
+				type : "POST",
+				data : {
+					team1PlayerNames : "YES",
+					matchId : match,
+				},
+				success: function (res) {
+					//console.log(res);
+					$("#bowlingCard1").html(res);
+				},
+				error : function (err) {
+					console.log(err);
+				}	
+			})
+
+			//Team-2 Bowling
+			$.ajax({
+				url : "../ajax/db_ajaxcalls.php",
+				type : "POST",
+				data : {
+					team2PlayerNames : "YES",
+					matchId : match,
+				},
+				success: function (res) {
+					//console.log(res);
+					$("#bowlingCard2").html(res);
+				},
+				error : function (err) {
+					console.log(err);
+				}	
+			})
+		})
+	})
+}
+
+
 let loadScoreBoardAdditional = () => {
 	let match = JSON.parse(localStorage.getItem("match"));
 

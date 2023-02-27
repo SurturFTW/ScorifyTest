@@ -41,7 +41,7 @@ session_start();
 	<table class="table table-hover mt-5" id="bowlingTable">
 		<thead>
 			<tr class="fw-bold">
-				<th>Bowlling</th>
+				<th>Bowling</th>
 				<th>O</th>
 				<th>R</th>
 				<th>M</th>
