@@ -34,13 +34,13 @@ ob_end_flush();
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light px-3 shadow shadow-lg">
 		<a class="navbar-brand" href="javascript:void(0)" onclick="loadHome()">
 			<span class="fw-bold">
-				<img src="assets/images/logo.png" width="40" height="40" alt="">
+				<img src="../../imgs/logo.png" width="40" height="40" alt="">
 				Scorify
 			</span>
 		</a>
 		<a href="javascript:void(0)" class="h5 d-block d-lg-none" data-bs-toggle="collapse"
 			data-bs-target="#nbcollapse">
-			<img src="assets/images/toggler.png" width="25" height="25" alt="">
+			<img src="../../imgs/toggler.png" width="25" height="25" alt="">
 		</a>
 
 		<div class="collapse navbar-collapse" id="nbcollapse">
@@ -59,7 +59,7 @@ ob_end_flush();
 					<a class="nav-link active rounded-pill text-success" aria-current="page" href="javascript:void(0)"
 						onclick="runningMatch()">
 						<span>
-							<img src="assets/images/running-match.png" width="35" height="35" alt="">
+							<img src="../../imgs/running-match.png" width="35" height="35" alt="">
 						</span>
 						<span> Running match</span>
 					</a>
@@ -69,7 +69,7 @@ ob_end_flush();
 					class="d-none nav-item mx-auto mx-lg-1 my-1 my-lg-0 shadow shadow-lg px-3 pt-lg-1 rounded-pill">
 					<a class="nav-link active rounded-pill text-success" aria-current="page" href="javascript:void(0)" onclick="teamFullCard(0)">
 						<span>
-							<img src="assets/images/scoreboard.png" width="25" height="25" alt="">
+							<img src="../../imgs/scoreboard.png" width="25" height="25" alt="">
 						</span>
 						<span> &nbspFull scorecard</span>
 					</a>

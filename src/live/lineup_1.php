@@ -4,7 +4,7 @@
 
 <div class="text-center my-3">
   <span class="h1">
-    <img src="assets/images/player-list.png" width="45" height="45">
+    <img src="../../imgs/player-list.png" width="45" height="45">
   </span>
   <span class="h1">
     Player List

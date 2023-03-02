@@ -3,7 +3,7 @@
 ?>
 <div class="text-center my-3">
   <span class="h1">
-    <img src="assets/images/details.png" width="40" height="40">
+    <img src="../../imgs/details.png" width="40" height="40">
   </span>
   <span class="h1">
     Match Details
