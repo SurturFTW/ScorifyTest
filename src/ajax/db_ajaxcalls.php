@@ -238,8 +238,8 @@ if(isset($_POST['team2Name'])){
 		}
 }
 
-//Display Team-1 Player Names
-if(isset($_POST['team1PlayerNames'])){
+//Display Team-1 Player Batting Data
+if(isset($_POST['team1batting'])){
 
     $matchId = $_POST['matchId'];
     $teams = array();
@@ -257,35 +257,123 @@ if(isset($_POST['team1PlayerNames'])){
 		while ($row4 = $result2 -> fetch_assoc()) { 
             echo '<tr>';
 			echo "<td>" . "<div id=\"T\"><p>" . $row4["playerName"] . "</p></div>" . "</td>";
-		}
-        echo '</tr>';
 
+            $playerid = $row4["playerId"];
 
+            $getscore = "SELECT * FROM `score` WHERE `playerId` = '$playerid'";
+            $result3 = mysqli_query($status, $getscore);
+            $result3 = $result3 -> fetch_assoc();
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["runScored"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["ballFaced"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["ballDotted"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["fourHitted"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["sixHitted"] . "</p></div>" . "</td>";
+            echo '</tr>';
+		} 
 }
 
-//Display Team-2 Player Names
-if(isset($_POST['team2PlayerNames'])){
+//Display Team-1 Player Bowling Data
+if(isset($_POST['team1bowling'])){
 
     $matchId = $_POST['matchId'];
     $teams = array();
 
     $query = "SELECT * FROM `team` WHERE `matchId` = '$matchId'";
 
-    $result3 = mysqli_query($status, $query);
-		while ($row3 = $result3 -> fetch_assoc()) { 
+    $result = mysqli_query($status, $query);
+		while ($row3 = $result -> fetch_assoc()) { 
 			array_push($teams, $row3['teamId']);
 		}
     
-        $player2 = "SELECT * FROM `player` WHERE `teamId` = '$teams[1]'";
-        $result2 = mysqli_query($status, $player2);
+        $player = "SELECT * FROM `player` WHERE `teamId` = '$teams[0]'";
+        $result2 = mysqli_query($status, $player);
         
-		while ($row5 = $result2 -> fetch_assoc()) { 
+		while ($row4 = $result2 -> fetch_assoc()) { 
             echo '<tr>';
-			echo "<td>" . "<div id=\"T\"><p>" . $row5["playerName"] . "</p></div>" . "</td>";
+			echo "<td>" . "<div id=\"T\"><p>" . $row4["playerName"] . "</p></div>" . "</td>";
+
+            $playerid = $row4["playerId"];
+
+            $getscore = "SELECT * FROM `score` WHERE `playerId` = '$playerid'";
+            $result3 = mysqli_query($status, $getscore);
+            $result3 = $result3 -> fetch_assoc();
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["ballsBowled"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["runGiven"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["maidenGiven"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["wicketTaken"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["wideGiven"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["noBallGiven"] . "</p></div>" . "</td>";
+            echo '</tr>';
+		} 
+}
+
+//Display Team-2 Player Names
+if(isset($_POST['team2batting'])){
+
+    $matchId = $_POST['matchId'];
+    $teams = array();
+
+    $query = "SELECT * FROM `team` WHERE `matchId` = '$matchId'";
+
+    $result = mysqli_query($status, $query);
+		while ($row3 = $result -> fetch_assoc()) { 
+			array_push($teams, $row3['teamId']);
 		}
-        echo '</tr>';
+    
+        $player = "SELECT * FROM `player` WHERE `teamId` = '$teams[1]'";
+        $result2 = mysqli_query($status, $player);
+        
+		while ($row4 = $result2 -> fetch_assoc()) { 
+            echo '<tr>';
+			echo "<td>" . "<div id=\"T\"><p>" . $row4["playerName"] . "</p></div>" . "</td>";
 
+            $playerid = $row4["playerId"];
 
+            $getscore = "SELECT * FROM `score` WHERE `playerId` = '$playerid'";
+            $result3 = mysqli_query($status, $getscore);
+            $result3 = $result3 -> fetch_assoc();
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["runScored"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["ballFaced"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["ballDotted"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["fourHitted"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["sixHitted"] . "</p></div>" . "</td>";
+            echo '</tr>';
+		}       
+}
+
+//Display Team-1 Player Bowling Data
+if(isset($_POST['team2bowling'])){
+
+    $matchId = $_POST['matchId'];
+    $teams = array();
+
+    $query = "SELECT * FROM `team` WHERE `matchId` = '$matchId'";
+
+    $result = mysqli_query($status, $query);
+		while ($row3 = $result -> fetch_assoc()) { 
+			array_push($teams, $row3['teamId']);
+		}
+    
+        $player = "SELECT * FROM `player` WHERE `teamId` = '$teams[1]'";
+        $result2 = mysqli_query($status, $player);
+        
+		while ($row4 = $result2 -> fetch_assoc()) { 
+            echo '<tr>';
+			echo "<td>" . "<div id=\"T\"><p>" . $row4["playerName"] . "</p></div>" . "</td>";
+
+            $playerid = $row4["playerId"];
+
+            $getscore = "SELECT * FROM `score` WHERE `playerId` = '$playerid'";
+            $result3 = mysqli_query($status, $getscore);
+            $result3 = $result3 -> fetch_assoc();
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["ballsBowled"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["runGiven"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["maidenGiven"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["wicketTaken"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["wideGiven"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["noBallGiven"] . "</p></div>" . "</td>";
+            echo '</tr>';
+		} 
 }
 
 ob_end_flush();

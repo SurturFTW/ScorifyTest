@@ -81,7 +81,7 @@ ob_end_flush();
 					<a class="nav-link active"> Welcome <?php echo $login_session; ?> </a>
 				</li>
 				<li class="nav-item mx-1">
-					<a class="nav-link active" href="../login.php">Sign Out</a>
+					<a class="nav-link active" href="../login.php" id="signout">Sign Out</a>
 				</li>
 			</ul>
 		</div>

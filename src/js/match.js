@@ -881,4 +881,10 @@ async function startMatch() {
   };
 
   await match.initializeInnings(); // Initialize the innings
+
+  //Clear LocalStorage on Signout
+	/*$("#signout").click(() => {
+		localStorage.clear();
+		view("./login.php", () => {});
+	})*/
 }

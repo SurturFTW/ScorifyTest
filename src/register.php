@@ -16,7 +16,7 @@ if (isset($_POST['Register'])) {
     echo '<script>alert(\'Password too short\');</script>';
   } else{
       $con = get_con();
-      $sql = "SELECT * FROM `members` WHERE Username = '$username' AND Pass = '$password';";
+      $sql = "SELECT * FROM `user` WHERE Username = '$username' AND Pass = '$password';";
 
       $result = mysqli_query($con, $sql);
       $result_user_type = mysqli_fetch_array($result);
@@ -36,7 +36,7 @@ if (isset($_POST['Register'])) {
 function register($email, $username, $password)
 {
   $con = get_con();
-  $sql = "INSERT INTO `members` ( `Email`, `Username`, `Pass`) VALUES ('$email', '$username','$password');";
+  $sql = "INSERT INTO `user` ( `Email`, `Username`, `Pass`) VALUES ('$email', '$username','$password');";
   if ($con->query($sql) === TRUE) {
     echo "<script>alert('Account Created Successfully');</script>";
   } 

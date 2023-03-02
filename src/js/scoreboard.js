@@ -427,7 +427,6 @@ let loadFullScorecard = (track) => {
 
 	document.querySelector("#bowlingCard").innerHTML = displayBowler;
 
-
 	var player1_names = [];
 	var player1_role = [];
 	var player1_status = [];
@@ -555,7 +554,6 @@ let loadFullScorecard = (track) => {
 	});
 
 };
-
 
 let newBatsman = () => {
 	let match = JSON.parse(localStorage.getItem("match"));
