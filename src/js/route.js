@@ -32,6 +32,21 @@ let loadScoreCard = () => {
 			let match = $("#match").val();
 			console.log(match);
 
+			if(match == "--"){
+				$("#teamOneName").hide();
+				$("#teamTwoName").hide();
+				$("#battingCard1").hide();
+				$("#battingCard2").hide();
+				$("#bowlingCard1").hide();
+				$("#bowlingCard2").hide();
+			}
+			else{
+				$("#teamOneName").show();
+				$("#teamTwoName").show();
+				$("#battingCard1").show();
+				$("#battingCard2").show();
+				$("#bowlingCard1").show();
+				$("#bowlingCard2").show();
 			//Team-1 Name
 			$.ajax({
 				url : "../ajax/db_ajaxcalls.php",
@@ -69,8 +84,10 @@ let loadScoreCard = () => {
 				url : "../ajax/db_ajaxcalls.php",
 				type : "POST",
 				data : {
-					team1PlayerNames : "YES",
+					// team1PlayerNames : "YES",
 					matchId : match,
+
+					team1batting : "YES"
 				},
 				success: function (res) {
 					$("#battingCard1").html(res);
@@ -85,8 +102,10 @@ let loadScoreCard = () => {
 				url : "../ajax/db_ajaxcalls.php",
 				type : "POST",
 				data : {
-					team2PlayerNames : "YES",
+					// team2PlayerNames : "YES",
 					matchId : match,
+
+					team2batting : "YES"
 				},
 				success: function (res) {
 					//console.log(res);
@@ -102,8 +121,10 @@ let loadScoreCard = () => {
 				url : "../ajax/db_ajaxcalls.php",
 				type : "POST",
 				data : {
-					team1PlayerNames : "YES",
+					// team1PlayerNames : "YES",
 					matchId : match,
+
+					team1bowling : "YES"
 				},
 				success: function (res) {
 					//console.log(res);
@@ -119,8 +140,10 @@ let loadScoreCard = () => {
 				url : "../ajax/db_ajaxcalls.php",
 				type : "POST",
 				data : {
-					team2PlayerNames : "YES",
+					// team2PlayerNames : "YES",
 					matchId : match,
+
+					team2bowling : "YES",
 				},
 				success: function (res) {
 					//console.log(res);
@@ -130,6 +153,7 @@ let loadScoreCard = () => {
 					console.log(err);
 				}	
 			})
+		}
 		})
 	})
 }

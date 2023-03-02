@@ -19,7 +19,7 @@ if (isset($_POST['Login'])) {
   $password = $_POST['password'];
 
   $con = get_con();
-  $sql = "SELECT * FROM `members` WHERE Username = '$username' AND Pass = '$password';";
+  $sql = "SELECT * FROM `user` WHERE Username = '$username' AND Pass = '$password';";
   $result = mysqli_query($con, $sql);
   $result_user_type = mysqli_fetch_array($result);
   

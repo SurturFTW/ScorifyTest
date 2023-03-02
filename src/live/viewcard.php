@@ -42,7 +42,6 @@ ob_end_flush();
 			<thead>
 				<tr class=" fw-bold">
 					<th>Batting</th>
-					<th></th>
 					<th>R</th>
 					<th>B</th>
 					<th>0s</th>
@@ -81,7 +80,6 @@ ob_end_flush();
 			<thead>
 				<tr class=" fw-bold">
 					<th>Batting</th>
-					<th></th>
 					<th>R</th>
 					<th>B</th>
 					<th>0s</th>
