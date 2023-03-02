@@ -323,13 +323,13 @@ let loadFullScorecard = (track) => {
 			<td>${batsmanStrikeRate}</td><td>`;
 
 		if (batsman.role == "bat") {
-			displayBatsman += `<img src="assets/images/batsman.png" width="15" height="15">`;
+			displayBatsman += `<img src="../../imgs/batsman.png" width="15" height="15">`;
 		} else if (batsman.role == "bowl") {
-			displayBatsman += `<img src="assets/images/bowler.png" width="15" height="15">`;
+			displayBatsman += `<img src="../../imgs/bowler.png" width="15" height="15">`;
 		} else if (batsman.role == "all_r") {
-			displayBatsman += `<img src="assets/images/all-rounder.png" width="15" height="15">`;
+			displayBatsman += `<img src="../../imgs/all-rounder.png" width="15" height="15">`;
 		} else if (batsman.role == "wk") {
-			displayBatsman += `<img src="assets/images/wicket-keeper.png" width="15" height="15">`;
+			displayBatsman += `<img src="../../imgs/wicket-keeper.png" width="15" height="15">`;
 		}
 
 		displayBatsman += "</td></tr>";

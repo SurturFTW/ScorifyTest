@@ -185,6 +185,7 @@ if(isset($_POST['flag'])){
         
         if ($con->query($score1) === TRUE) {
             echo "\nScore Inserted";
+            echo "<span>" . "<div id=\"N\"><p>". "Score Inserted" . "</p></div>" . "</span>";
         } 
         else {
             echo "Error 500";
@@ -234,7 +235,7 @@ if(isset($_POST['team2Name'])){
         $result2 = mysqli_query($status, $team);
         
 		if ($row5 = $result2 -> fetch_assoc()) { 
-			echo "<span>" . "<div id=\"T\"><p>" . $row5["teamName"] . "</p></div>" . "</span>";
+			echo "<div id=\"T\"><p>" . $row5["teamName"] . "</p></div>";
 		}
 }
 

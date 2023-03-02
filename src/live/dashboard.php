@@ -23,7 +23,7 @@ ob_end_flush();
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title> Scorify </title>
-	<link rel="icon" href="assets/images/logo.png">
+	<link rel="icon" href="../../imgs/logo.png">
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="assets/live.css">
 
@@ -49,7 +49,7 @@ ob_end_flush();
 					<a class="nav-link active rounded-pill text-primary" aria-current="page" href="javascript:void(0)"
 						onclick="newMatch()">
 						<span>
-							<img src="assets/images/new-match.png" width="35" height="35" alt="">
+							<img src="../../imgs/new-match.png" width="35" height="35" alt="">
 						</span>
 						<span> New match</span>
 					</a>
@@ -81,7 +81,7 @@ ob_end_flush();
 					<a class="nav-link active"> Welcome <?php echo $login_session; ?> </a>
 				</li>
 				<li class="nav-item mx-1">
-					<a class="nav-link active" href="../login.php" id="signout">Sign Out</a>
+					<a class="nav-link active" href="../login.php" id="signout" onclick="signout()">Sign Out</a>
 				</li>
 			</ul>
 		</div>

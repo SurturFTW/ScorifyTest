@@ -66,13 +66,13 @@ ob_end_flush();
 					<th>Nb</th>
 				</tr>
 			</thead>
-		<tbody id="bowlingCard1"></tbody>
+		<tbody id="bowlingCard2"></tbody>
 		</table>
 	</div>
 
 <!--Team-2 Scorecard-->
 	<div class="col-11 mt-3 my-lg-0 col-lg-5 text-center shadow shadow-lg fw-bold mx-2 rounded-pill" id="teamTwoCard" style="font-size: 1.3rem;">
-		<p id="teamTwoName" class="nav-link text-center active rounded-pill text-success" aria-current="page"> </p>
+		<p id="teamTwoName" class="text-center active rounded-pill text-success" aria-current="page"> </p>
 	</div>
 
 	<div class="my-5 mx-lg-5 px-2">
@@ -104,7 +104,7 @@ ob_end_flush();
 					<th>Nb</th>
 				</tr>
 			</thead>
-		<tbody id="bowlingCard2"></tbody>
+		<tbody id="bowlingCard1"></tbody>
 		</table>
 	</div>
 </div>

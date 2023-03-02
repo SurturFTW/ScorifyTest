@@ -24,6 +24,10 @@ let loadHome = () => {
 	});
 };
 
+let signout = () => {
+	localStorage.clear();
+}
+
 let loadScoreCard = () => {
 	view("viewcard.php", () => {
 		$("#match").on('change', (e) => {
