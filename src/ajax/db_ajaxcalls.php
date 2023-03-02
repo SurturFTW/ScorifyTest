@@ -84,7 +84,7 @@ if(isset($_POST['flag'])){
     $playerBallDotted1 = $team1Players[5];
     $playerFourHitted1 = $team1Players[6];
     $playerSixHitted1 = $team1Players[7];
-    $playerBallsBowled1 = $team1Players[8];
+    $playeroverBowled1 = $team1Players[8];
     $playerRunsGiven1 = $team1Players[9];
     $playerDotGiven1 = $team1Players[10];
     $playerMaidenGiven1 = $team1Players[11];
@@ -115,8 +115,8 @@ if(isset($_POST['flag'])){
         $playerId = $row2['playerId'];
 
         //Insert into Score Table for Team-1
-        $score1 = "INSERT INTO `score` (`matchId`, `teamId`, `playerId`, `runScored`, `ballFaced`, `ballDotted`, `fourHitted`, `sixHitted`, `ballsBowled`, `runGiven`, `dotGiven`, `maidenGiven`, `fourConsidered`, `sixConsidered`, `wideGiven`, `noBallGiven`, `wicketTaken`) 
-            VALUES ('$matchId', '$teamId', '$playerId', '$playerRunScored1[$j]', '$playerBallFaced1[$j]', '$playerBallDotted1[$j]', '$playerFourHitted1[$j]', '$playerSixHitted1[$j]', '$playerBallsBowled1[$j]', '$playerRunsGiven1[$j]', 
+        $score1 = "INSERT INTO `score` (`matchId`, `teamId`, `playerId`, `runScored`, `ballFaced`, `ballDotted`, `fourHitted`, `sixHitted`, `overBowled`, `runGiven`, `dotGiven`, `maidenGiven`, `fourConsidered`, `sixConsidered`, `wideGiven`, `noBallGiven`, `wicketTaken`) 
+            VALUES ('$matchId', '$teamId', '$playerId', '$playerRunScored1[$j]', '$playerBallFaced1[$j]', '$playerBallDotted1[$j]', '$playerFourHitted1[$j]', '$playerSixHitted1[$j]', '$playeroverBowled1[$j]', '$playerRunsGiven1[$j]', 
             '$playerDotGiven1[$j]', '$playerMaidenGiven1[$j]', '$playerFourConsidered1[$j]', '$playerSixConsidered1[$j]', '$playerWideGiven1[$j]', '$playerNoBallGiven1[$j]', '$playerWicketTaken1[$j]')";
         
         if ($con->query($score1) === TRUE) {
@@ -148,7 +148,7 @@ if(isset($_POST['flag'])){
     $playerBallDotted2 = $team2Players[5];
     $playerFourHitted2 = $team2Players[6];
     $playerSixHitted2 = $team2Players[7];
-    $playerBallsBowled2 = $team2Players[8];
+    $playeroverBowled2 = $team2Players[8];
     $playerRunsGiven2 = $team2Players[9];
     $playerDotGiven2 = $team2Players[10];
     $playerMaidenGiven2 = $team2Players[11];
@@ -179,8 +179,8 @@ if(isset($_POST['flag'])){
         $playerId = $row3['playerId'];
 
         //Insert into Score Table for Team-1
-        $score1 = "INSERT INTO `score` (`matchId`, `teamId`, `playerId`, `runScored`, `ballFaced`, `ballDotted`, `fourHitted`, `sixHitted`, `ballsBowled`, `runGiven`, `dotGiven`, `maidenGiven`, `fourConsidered`, `sixConsidered`, `wideGiven`, `noBallGiven`, `wicketTaken`) 
-            VALUES ('$matchId', '$teamId', '$playerId', '$playerRunScored2[$j]', '$playerBallFaced2[$j]', '$playerBallDotted2[$j]', '$playerFourHitted2[$j]', '$playerSixHitted2[$j]', '$playerBallsBowled2[$j]', '$playerRunsGiven2[$j]', 
+        $score1 = "INSERT INTO `score` (`matchId`, `teamId`, `playerId`, `runScored`, `ballFaced`, `ballDotted`, `fourHitted`, `sixHitted`, `overBowled`, `runGiven`, `dotGiven`, `maidenGiven`, `fourConsidered`, `sixConsidered`, `wideGiven`, `noBallGiven`, `wicketTaken`) 
+            VALUES ('$matchId', '$teamId', '$playerId', '$playerRunScored2[$j]', '$playerBallFaced2[$j]', '$playerBallDotted2[$j]', '$playerFourHitted2[$j]', '$playerSixHitted2[$j]', '$playeroverBowled2[$j]', '$playerRunsGiven2[$j]', 
             '$playerDotGiven2[$j]', '$playerMaidenGiven2[$j]', '$playerFourConsidered2[$j]', '$playerSixConsidered2[$j]', '$playerWideGiven2[$j]', '$playerNoBallGiven2[$j]', '$playerWicketTaken2[$j]')";
         
         if ($con->query($score1) === TRUE) {
@@ -297,7 +297,7 @@ if(isset($_POST['team1bowling'])){
             $getscore = "SELECT * FROM `score` WHERE `playerId` = '$playerid'";
             $result3 = mysqli_query($status, $getscore);
             $result3 = $result3 -> fetch_assoc();
-            echo "<td>" . "<div id=\"T\"><p>" . $result3["ballsBowled"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["overBowled"] . "</p></div>" . "</td>";
             echo "<td>" . "<div id=\"T\"><p>" . $result3["runGiven"] . "</p></div>" . "</td>";
             echo "<td>" . "<div id=\"T\"><p>" . $result3["maidenGiven"] . "</p></div>" . "</td>";
             echo "<td>" . "<div id=\"T\"><p>" . $result3["wicketTaken"] . "</p></div>" . "</td>";
@@ -366,7 +366,7 @@ if(isset($_POST['team2bowling'])){
             $getscore = "SELECT * FROM `score` WHERE `playerId` = '$playerid'";
             $result3 = mysqli_query($status, $getscore);
             $result3 = $result3 -> fetch_assoc();
-            echo "<td>" . "<div id=\"T\"><p>" . $result3["ballsBowled"] . "</p></div>" . "</td>";
+            echo "<td>" . "<div id=\"T\"><p>" . $result3["overBowled"] . "</p></div>" . "</td>";
             echo "<td>" . "<div id=\"T\"><p>" . $result3["runGiven"] . "</p></div>" . "</td>";
             echo "<td>" . "<div id=\"T\"><p>" . $result3["maidenGiven"] . "</p></div>" . "</td>";
             echo "<td>" . "<div id=\"T\"><p>" . $result3["wicketTaken"] . "</p></div>" . "</td>";

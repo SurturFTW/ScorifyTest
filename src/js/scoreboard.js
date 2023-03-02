@@ -482,7 +482,7 @@ let loadFullScorecard = (track) => {
 			player1_ballDotted.push((team1_arr[i].ballDotted));
 			player1_fourHitted.push((team1_arr[i].fourHitted));
 			player1_sixHitted.push((team1_arr[i].sixHitted));
-			player1_ballsBowled.push((team1_arr[i].ballBowled));
+			player1_ballsBowled.push((team1_arr[i].ballBowled / 6));
 			player1_runsGiven.push((team1_arr[i].runGiven));
 			player1_dotGiven.push((team1_arr[i].dotGiven));
 			player1_maidenGiven.push((team1_arr[i].maidenGiven));
@@ -504,7 +504,7 @@ let loadFullScorecard = (track) => {
 			player2_ballDotted.push((team2_arr[i].ballDotted));
 			player2_fourHitted.push((team2_arr[i].fourHitted));
 			player2_sixHitted.push((team2_arr[i].sixHitted));
-			player2_ballsBowled.push((team2_arr[i].ballBowled));
+			player2_ballsBowled.push((team2_arr[i].ballBowled / 6));
 			player2_runsGiven.push((team2_arr[i].runGiven));
 			player2_dotGiven.push((team2_arr[i].dotGiven));
 			player2_maidenGiven.push((team2_arr[i].maidenGiven));
